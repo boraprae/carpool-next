@@ -1,3 +1,5 @@
+import Link from "next/link";
+
 export default function Home({ posts }) {
   return (
     <div>
@@ -5,7 +7,10 @@ export default function Home({ posts }) {
       {posts.map((post) => {
         return (
           <div key={post.postID}>
-            <p>{post.title}</p>
+            <Link href={`/post/${post.postID}`}>
+              <p>{post.title}</p>
+            </Link>
+
             {/* <p>{post.price} baht</p> */}
           </div>
         );
@@ -18,14 +23,14 @@ export default function Home({ posts }) {
 export async function getServerSideProps() {
   try {
     const res = await fetch(`${process.env.URL_ROOT}/api/post`);
-    if(res.ok) {
+    if (res.ok) {
       const posts = await res.json();
-      return { props: {posts}};
+      return { props: { posts } };
     }
-    throw Error('server response not ok');
+    throw Error("server response not ok");
   } catch (error) {
     console.error(error);
-    return res.status(500).send('error');
+    return res.status(500).send("error");
   }
 }
 
