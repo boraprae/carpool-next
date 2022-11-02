@@ -6,7 +6,8 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "server": "json-server --watch data/carpool.json --port 9000"
   },
   "dependencies": {
     "eslint": "8.26.0",
