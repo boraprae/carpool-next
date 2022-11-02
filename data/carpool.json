@@ -2,7 +2,7 @@
     "post" : [
         {
             "postID": 1,
-            "userID": 123,
+            "userID": 1234,
             "title": "Go to airport",
             "origin": "mfu",
             "destination": "Airport",
@@ -10,18 +10,9 @@
             "price": 50
         },
         {
-            "postID": 1,
-            "userID": 123,
-            "title": "Go to airport",
-            "origin": "mfu",
-            "destination": "Airport",
-            "seat": 3,
-            "price": 50
-        },
-        {
-            "postID": 1,
-            "userID": 123,
-            "title": "Go to airport",
+            "postID": 2,
+            "userID": 1235,
+            "title": "Go to Downtown",
             "origin": "mfu",
             "destination": "Airport",
             "seat": 3,
