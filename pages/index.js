@@ -17,7 +17,22 @@ export default function Home({posts}) {
 }
 
 // SSR, real-time
-export async function getServerSideProps() {
+// export async function getServerSideProps() {
+//   try {
+//     const res = await fetch('http://localhost:9000/post');    
+//     if(res.ok) {
+//       const posts = await res.json();
+//       return { props: {posts}};
+//     }
+//     throw Error('server response not ok');
+//   } catch (error) {
+//     console.error(error);
+//     return res.status(500).send('error');
+//   }
+// }
+
+//SSG
+export async function getStaticProps() {
   try {
     const res = await fetch('http://localhost:9000/post');    
     if(res.ok) {
@@ -30,4 +45,3 @@ export async function getServerSideProps() {
     return res.status(500).send('error');
   }
 }
-
