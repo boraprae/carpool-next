@@ -1,38 +1,42 @@
 import Link from "next/link";
+import Container from 'react-bootstrap/Container';
+import Navbar from 'react-bootstrap/Navbar';
+import Button from 'react-bootstrap/Button';
 
-export default function Home({ posts }) {
+export default function Home() {
   return (
     <div>
-      <h1>MFU Carpool</h1>
-      {posts.map((post) => {
-        return (
-          <div key={post.postID}>
-            <Link href={`/post/${post.postID}`}>
-              <p>{post.title}</p>
-            </Link>
-
-            {/* <p>{post.price} baht</p> */}
-          </div>
-        );
-      })}
+      <Navbar bg="dark" variant="dark">
+      <Container>
+        <Navbar.Brand href="/">MFU Carpool</Navbar.Brand>
+        <Navbar.Toggle />
+        <Navbar.Collapse className="justify-content-end">
+          <Navbar.Text>
+           <Link href="/login">
+            <Button variant="primary">Login</Button>
+           </Link>
+          </Navbar.Text>
+        </Navbar.Collapse>
+      </Container>
+    </Navbar>
     </div>
   );
 }
 
 // SSR, real-time
-export async function getServerSideProps() {
-  try {
-    const res = await fetch(`${process.env.URL_ROOT}/api/post`);
-    if (res.ok) {
-      const posts = await res.json();
-      return { props: { posts } };
-    }
-    throw Error("server response not ok");
-  } catch (error) {
-    console.error(error);
-    return res.status(500).send("error");
-  }
-}
+// export async function getServerSideProps() {
+//   try {
+//     const res = await fetch(`${process.env.URL_ROOT}/api/post`);
+//     if (res.ok) {
+//       const posts = await res.json();
+//       return { props: { posts } };
+//     }
+//     throw Error("server response not ok");
+//   } catch (error) {
+//     console.error(error);
+//     return res.status(500).send("error");
+//   }
+// }
 
 //SSG
 // export async function getStaticProps() {

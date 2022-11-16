@@ -10,11 +10,15 @@
     "server": "json-server --watch data/carpool.json --port 9000"
   },
   "dependencies": {
+    "bcrypt": "^5.1.0",
+    "bootstrap": "^5.2.2",
     "eslint": "8.26.0",
     "eslint-config-next": "13.0.1",
+    "json-server": "^0.17.1",
     "mysql2": "^2.3.3",
     "next": "13.0.1",
     "react": "18.2.0",
+    "react-bootstrap": "^2.6.0",
     "react-dom": "18.2.0"
   }
 }
