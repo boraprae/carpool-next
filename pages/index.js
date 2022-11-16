@@ -1,24 +1,26 @@
 import Link from "next/link";
-import Container from 'react-bootstrap/Container';
-import Navbar from 'react-bootstrap/Navbar';
-import Button from 'react-bootstrap/Button';
+import Container from "react-bootstrap/Container";
+import Navbar from "react-bootstrap/Navbar";
+import Button from "react-bootstrap/Button";
+import { useSession, signIn } from "next-auth/react";
 
 export default function Home() {
+  const { data: session } = useSession();
   return (
     <div>
       <Navbar bg="dark" variant="dark">
-      <Container>
-        <Navbar.Brand href="/">MFU Carpool</Navbar.Brand>
-        <Navbar.Toggle />
-        <Navbar.Collapse className="justify-content-end">
-          <Navbar.Text>
-           <Link href="/login">
-            <Button variant="primary">Login</Button>
-           </Link>
-          </Navbar.Text>
-        </Navbar.Collapse>
-      </Container>
-    </Navbar>
+        <Container>
+          <Navbar.Brand href="/">MFU Carpool</Navbar.Brand>
+          <Navbar.Toggle />
+          <Navbar.Collapse className="justify-content-end">
+            <Navbar.Text>
+              <Button variant="primary" onClick={() => signIn()}>
+                Login
+              </Button>
+            </Navbar.Text>
+          </Navbar.Collapse>
+        </Container>
+      </Navbar>
     </div>
   );
 }

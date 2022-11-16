@@ -17,7 +17,8 @@ export default async function handler(req, res) {
                 // res.send(hash);
                 const same = await bcrypt.compare(raw, hash);
                 if(same) {
-                    res.send("Login OK");
+                    // res.send("Login OK");
+                    res.json({userID: rows[0].id, username: username});
                 }
                 else {
                     res.status(401).send("Wrong password");
